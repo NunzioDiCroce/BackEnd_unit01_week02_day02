@@ -45,6 +45,9 @@ public class Esercizio1Main {
 			System.out.println(_parola);
 		}
 
+		System.out.println("");
+		System.out.println("Termine programma");
+
 		esercizioUno.close();
 	}
 

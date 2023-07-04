@@ -44,5 +44,8 @@ public class Esercizio1Main {
 		for (String _parola : distinteSet) {
 			System.out.println(_parola);
 		}
+
+		esercizioUno.close();
 	}
+
 }

@@ -16,38 +16,36 @@ public class Esercizio3Main {
 		System.out.println("- - - - - - - - - - ESERCIZIO 3 - - - - - - - - - -");
 		System.out.println("");
 
-		System.out.println("Operazioni possibili");
-		System.out.println("");
-		System.out.println("1) Inserire nuovo contatto");
-		System.out.println("2) Cancella contatto esistente");
-		System.out.println("3) Cerca telefono contatto");
-		System.out.println("4) Cerca nome contatto");
-		System.out.println("5) Stampa contatti");
-		System.out.println("");
-		System.out.println("Scegli un numero da 1 a 5:");
+		while (true) {
+			System.out.println("Operazioni possibili");
+			System.out.println(
+					"1.Inserire nuovo contatto | 2.Cancella contatto esistente | 3.Cerca telefono contatto | 4.Cerca nome contatto | 5.Stampa contatti");
+			System.out.println("Scegli un numero da 1 a 5:");
 
-		String scelta = esercizioTre.nextLine();
+			String scelta = esercizioTre.nextLine();
 
-		String sceltaSwitch = scelta;
+			String sceltaSwitch = scelta;
 
-		switch (sceltaSwitch) {
-		case "1":
-			inserisciContatto(esercizioTre);
-			break;
-		case "2":
-			cancellaContatto(esercizioTre);
-			break;
-		case "3":
-			cercaTelefono(esercizioTre);
-			break;
-		case "4":
-			cercaNome(esercizioTre);
-			break;
-		case "5":
-			stampaContatti();
-			break;
+			switch (sceltaSwitch) {
+			case "1":
+				inserisciContatto(esercizioTre);
+				break;
+			case "2":
+				cancellaContatto(esercizioTre);
+				break;
+			case "3":
+				cercaTelefono(esercizioTre);
+				break;
+			case "4":
+				cercaNome(esercizioTre);
+				break;
+			case "5":
+				stampaContatti();
+				break;
+			default:
+				System.out.println("Scelta non consentita. Riavviare il programma.");
+			}
 		}
-
 	}
 
 	public static void inserisciContatto(Scanner _scanner) {
@@ -60,6 +58,7 @@ public class Esercizio3Main {
 
 		rubrica.put(nome, numero);
 		System.out.println(nome + " " + numero + " inserito con successo.");
+		System.out.println("");
 	}
 
 	public static void cancellaContatto(Scanner _scanner) {
@@ -70,8 +69,10 @@ public class Esercizio3Main {
 		if (rubrica.containsKey(nome)) {
 			rubrica.remove(nome);
 			System.out.println(nome + " eliminato con successo.");
+			System.out.println("");
 		} else {
 			System.out.println("Contatto non presente in rubrica");
+			System.out.println("");
 		}
 	}
 
@@ -83,8 +84,10 @@ public class Esercizio3Main {
 		if (rubrica.containsKey(numero)) {
 			String nome = rubrica.get(numero);
 			System.out.println("Numero " + numero + " trovato con nome " + nome);
+			System.out.println("");
 		} else {
 			System.out.println("Numero non presente in rubrica");
+			System.out.println("");
 		}
 
 	}
@@ -97,8 +100,10 @@ public class Esercizio3Main {
 		if (rubrica.containsKey(nome)) {
 			String numero = rubrica.get(nome);
 			System.out.println("Nome " + nome + " trovato con numero " + numero);
+			System.out.println("");
 		} else {
 			System.out.println("Nome non presente in rubrica");
+			System.out.println("");
 		}
 	}
 

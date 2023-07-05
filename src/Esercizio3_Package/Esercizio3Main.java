@@ -43,7 +43,8 @@ public class Esercizio3Main {
 				stampaContatti();
 				break;
 			default:
-				System.out.println("Scelta non consentita. Riavviare il programma.");
+				System.out.println("Scelta non consentita.");
+				System.out.println("");
 			}
 		}
 	}
@@ -81,15 +82,15 @@ public class Esercizio3Main {
 		System.out.println("Inserisci telefono da cercare:");
 		String numero = _scanner.nextLine();
 
-		if (rubrica.containsKey(numero)) {
-			String nome = rubrica.get(numero);
-			System.out.println("Numero " + numero + " trovato con nome " + nome);
-			System.out.println("");
-		} else {
+		for (Map.Entry<String, String> entry : rubrica.entrySet()) {
+			if (entry.getValue().equals(numero)) {
+				System.out.println(entry.getValue() + " trovato con nome " + entry.getKey());
+				System.out.println("");
+				return;
+			}
 			System.out.println("Numero non presente in rubrica");
 			System.out.println("");
 		}
-
 	}
 
 	public static void cercaNome(Scanner _scanner) {
@@ -99,7 +100,7 @@ public class Esercizio3Main {
 
 		if (rubrica.containsKey(nome)) {
 			String numero = rubrica.get(nome);
-			System.out.println("Nome " + nome + " trovato con numero " + numero);
+			System.out.println(nome + " trovato con numero " + numero);
 			System.out.println("");
 		} else {
 			System.out.println("Nome non presente in rubrica");
@@ -108,6 +109,15 @@ public class Esercizio3Main {
 	}
 
 	public static void stampaContatti() {
+		if (rubrica.size() != 0) {
+			for (Map.Entry<String, String> entry : rubrica.entrySet()) {
+				System.out.println(entry.getKey() + " " + entry.getValue());
+			}
+			System.out.println("");
+		} else {
+			System.out.println("Non ci sono contatti in rubrica");
+			System.out.println("");
+		}
 
 	}
 
